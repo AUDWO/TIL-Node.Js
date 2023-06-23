@@ -5,9 +5,11 @@ const http = require("http");
 let server = http.createServer(function (request, response) {
   //각 패스마다 해야 할 응답이 서버에 미리 정해져 있기 떄문에
   console.log(request.url);
+});
+//request:클라이언트의 요청에 관한 객체
+//response:server객체가 할 응답에 관한 객체
 
-  //request:클라이언트의 요청에 관한 객체
-  //response:server객체가 할 응답에 관한 객체
+/*
   if (request.url === "/") {
     response.end("<h1>Welcome</h1>");
   } else if (request.url === "/users") {
@@ -16,6 +18,17 @@ let server = http.createServer(function (request, response) {
     response.end("</h1>Page Not Available</h1>");
   }
 });
+*/
+
+if (request.url === "/") {
+  response.end("<h1>Welcome</h1>");
+} else if (request.url === "/users") {
+  response.end("<h1>" + users + "</h1>");
+} else if (request.url.split("/"[1] === "users")) {
+  const userIdx = request.url.split("/")[2];
+  const useName = user[userIdx - 1];
+  response.end();
+}
 
 //3000:포트 번호
 //하나의 서버에는 여러개의 프로그램이 실행되고 있는 경우가 많다
